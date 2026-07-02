@@ -42,9 +42,11 @@ export default function AuthForm({ mode }) {
   return (
     <div className="w-full max-w-sm">
       <div className="mb-8 text-center">
-        <span className="mx-auto mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-indigo font-display text-lg font-semibold text-paper">
-          L
-        </span>
+        <img
+          src="/icons/icon-96.png"
+          alt=""
+          className="mx-auto mb-4 h-14 w-14 rounded-full border border-line shadow-ledger"
+        />
         <h1 className="font-display text-2xl font-semibold tracking-tight">
           {isSignup ? "Open your ledger" : "Welcome back"}
         </h1>

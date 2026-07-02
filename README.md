@@ -1,8 +1,8 @@
-# Ledger — College Attendance Tracker
+# Ledge — College Attendance Tracker
 
 A production-ready Next.js app (with its own built-in server, no separate backend needed) for
 tracking daily college attendance, period by period, across a semester. Data is stored in
-MongoDB via Mongoose.
+MongoDB via Mongoose. It's also an installable PWA — see below.
 
 ## Features
 
@@ -91,6 +91,27 @@ components/          shared UI (Calendar, DayForm, SettingsForm, Navbar, ...)
 lib/                 db connection, auth helpers, date helpers, Mongoose models
 middleware.js        redirects based on session cookie presence
 ```
+
+## Installing it as an app (PWA)
+
+Ledge is a fully installable Progressive Web App:
+
+- `public/manifest.json` defines the name, theme colors, and the full icon set generated from
+  the app's avatar (`public/icons/`), including maskable variants for Android's adaptive icons.
+- `public/sw.js` is a small service worker: it caches the app shell (icons, manifest, static
+  `_next` assets) and shows a friendly `offline.html` page if a navigation fails with no
+  connection. It intentionally does **not** cache attendance data itself, since that always
+  needs to be fresh from the database.
+- `components/ServiceWorkerRegister.jsx` registers the service worker on first load.
+
+To install:
+- **Desktop Chrome/Edge**: an install icon appears in the address bar once the app is served
+  over HTTPS (or `localhost`).
+- **Android**: "Add to Home screen" from the browser menu.
+- **iOS Safari**: Share → "Add to Home Screen" (uses the Apple touch icon and standalone mode
+  configured in `app/layout.js`).
+
+Note: service workers require HTTPS in production (`localhost` is exempt for local testing).
 
 ## Notes on the login model
 

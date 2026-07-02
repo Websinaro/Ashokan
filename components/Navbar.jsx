@@ -23,10 +23,12 @@ export default function Navbar({ user }) {
     <header className="sticky top-0 z-30 border-b border-line bg-paper/90 backdrop-blur">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
         <Link href="/dashboard" className="flex items-center gap-2">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-indigo font-display text-sm font-semibold text-paper">
-            L
-          </span>
-          <span className="font-display text-lg font-semibold tracking-tight">Ledger</span>
+          <img
+            src="/icons/icon-96.png"
+            alt=""
+            className="h-8 w-8 rounded-full border border-line"
+          />
+          <span className="font-display text-lg font-semibold tracking-tight">Ledge</span>
         </Link>
 
         <nav className="hidden items-center gap-1 sm:flex">
